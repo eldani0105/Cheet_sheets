@@ -1,0 +1,32 @@
+## CONFIGURE ROUTES ON ROUTERS ##
+=================================================================================
+## IPV4 Config ##
+-------------------
+# Configure an IPV4 static route on a router #
+
+R1(config)# ip route network-address netmask next-hop
+R2(config)# ip route 10.0.1.0 255.255.255.0 203.0.113.5
+
+R1(config)# ip route network-address netmask exit-interface next-hop
+R2(config)#ip route 192.168.1.0 255.255.255.252 gigabitEthernet 0/0/0 203.0.113.5
+
+# Configure a Floating Static Route #
+
+R1(config)# ip route network-address netmask next-hop AD
+R2(config)# ip route 10.0.1.0 255.255.255.0 203.0.113.5 120
+================================================================================
+## IPV6 Config ##
+------------------
+# Enable IPV6 routing on the router #
+
+R2(config)#ipv6 unicast-routing 
+
+# Configure a Static Route using a link-local address as next-hop #
+
+R2(config)#ipv6 route 2001:db8::/64 gigabitEthernet 0/0 FE80::230:F2FF:FE36:4501
+
+# Configure an IPV6 Static Route #
+
+R2(config)#ipv6 route destination/prefix-length {next-hop | exit-interface [next-hop]} [ad]
+
+

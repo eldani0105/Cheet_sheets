@@ -1,0 +1,25 @@
+## ROUTERS ##
+
+# shows basic information about IP interfaces#
+
+R1# show ip interfaces brief
+
+#shows routing table of the router#
+
+R1# show ip route
+
+============================================================
+
+## SWITCHES ##
+
+#show basic info about VLANs
+
+SW1#show vlan brief 
+
+# shows basic information about IP interfaces#
+
+S1# show ip interfaces brief
+
+# Show spanning tree configurations #
+
+SW4#show spanning-tree 

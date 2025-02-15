@@ -1,0 +1,38 @@
+## ETHER CHANNEL CONFIGURATIONS ##
+===========================================================================================
+## ether-channel creation ##
+-------------------------------------------
+# Configure a EtherChannel using LACP #
+
+ASW1(config-if-range)#channel-group 1 mode active 
+
+# Configure a EtherChannel using PAgP #
+
+ASW1(config-if-range)#channel-group 1 mode desirable
+
+# Configure a EtherChannel static #
+ 
+ASW1(config-if-range)#channel-group 1 mode on
+
+======================================================================================
+## configure load-balancing ##
+------------------------------
+ASW2(config)#port-channel load-balance ?
+  dst-ip       Dst IP Addr
+  dst-mac      Dst Mac Addr
+  src-dst-ip   Src XOR Dst IP Addr
+  src-dst-mac  Src XOR Dst Mac Addr
+  src-ip       Src IP Addr
+  src-mac      Src Mac Addr
+
+======================================================================================
+## SHOW COMMANDS ##
+-------------------
+# Check EtherChannel Configurations #
+
+ASW1#show etherchannel summary 
+
+# Check the Load balancing method #
+
+ASW2#show etherchannel load-balance 
+

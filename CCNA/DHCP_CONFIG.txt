@@ -1,0 +1,48 @@
+## DHCP CONFIG ##
+===============================================================================
+## Router as a DHCP server ##
+-----------------------------
+# Create a DHCP Pool #
+
+R2(config)#ip dhcp pool POOL1
+
+# Configure network information for the pool #
+
+R2(dhcp-config)#network 192.168.1.0 255.255.255.0
+
+R2(dhcp-config)#domain-name jeremysitlab.com
+
+R2(dhcp-config)#default-router 192.168.1.1
+
+R2(dhcp-config)#dns-server 8.8.8.8
+
+# exclude an IP address range for DHCP #
+
+R2(config)#ip dhcp excluded-address 192.168.1.1 192.168.1.10
+
+=====================================================================================
+## Extra DHCP Config ##
+------------------------------
+# configure a router int as a DHCP client #
+
+R1(config-if)#ip address dhcp 
+
+# Configure a router as a DHCP relay agent #
+	# this should be configured on the interface connected to the hosts :) # 
+
+R1(config-if)#ip helper-address 203.0.113.1
+
+====================================================================================
+## Show Commands ##
+-------------------
+# display info about DHCP pools #
+
+R2#show ip dhcp pool
+
+# Display the DHCP clients that have received an IP address from this router #
+
+R2#show ip dhcp binding
+
+
+
+

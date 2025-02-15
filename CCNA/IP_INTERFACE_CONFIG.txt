@@ -1,0 +1,17 @@
+## Set an IPV4 address on a router interface
+
+R1(config)#interface gigabitEthernet 0/0
+R1(config-if)#ip address 10.255.255.254 255.0.0.0
+R1(config-if)#no shutdown
+
+## set the speed and duplex of an interface
+
+R1(config-if)#speed 1000
+
+R1(config-if)#duplex full
+
+
+## set the description of an interface
+
+R1(config-if)#description ##TO SW1##
+

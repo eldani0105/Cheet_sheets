@@ -1,0 +1,50 @@
+## EIGRP CONFIGURATIONS ##
+===========================================================================
+## Basic EIGRP config ##
+-------------------------
+# Enter router config with EIGRP and set the AS number #
+
+R1(config)#router eigrp 1
+
+# disable auto summary #
+
+R1(config-router)#no auto-summary
+
+# Enable EIGRP on the interfaces. EIGRP uses wildcards to specify #
+
+R1(config-router)#network 10.0.0.0 0.0.255.255
+
+# configure passive interfaces #
+
+R1(config-router)#passive-interface gigabitEthernet 0/1
+
+===========================================================================
+## Extra EIGRP config ##
+----------------------------
+
+# configure unequal-cost load-balancing on a router using the variance #
+
+R1(config-router)#variance 2
+
+===========================================================================
+## Configure a Loopback interface in a router ##
+-----------------------------------------------
+# create the loopback interface #
+
+R1(config)#interface loopback 1
+
+# set the IP address #
+
+R1(config-if)#ip address 1.1.1.1 255.255.255.255
+
+===========================================================================
+## Show commands ##
+---------------------
+
+# check dynamic routing protocol settings #
+
+R4#show ip protocols 
+
+# check all the routes gotten from EIGRP #
+
+R4#show ip eigrp topology 
