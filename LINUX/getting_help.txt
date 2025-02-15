@@ -1,0 +1,10 @@
+## GETTING HELP IN LINUX ##
+=================================================================================
+# display manual pages for commands #
+
+$ man <tool>
+
+# display syntax and parameters simplified #
+
+$ <tool> --help
+$ <tool> -h

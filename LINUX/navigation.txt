@@ -1,0 +1,53 @@
+## NAVIGATION ##
+=======================================================================================
+## LS command ##
+----------------
+# list all the contents on a directory #
+
+$ls
+
+# list all the contents with more information #
+
+$ls -l
+
+# list including hidden files #
+
+$ls -la
+
+# you can include the whole path #
+
+$ls -l /var/
+
+# list content with the index number of each file #
+
+$ls -i
+
+=========================================================================================
+## CD command ##
+-----------------
+# change directory #
+
+$cd /dev/shm
+
+# jump back to the directory we were last in #
+
+$cd -
+
+#  jump to the parent directory #
+
+$cd ..
+
+========================================================================================
+## Extra commands ##
+---------------------
+# clear terminal #
+
+$clear
+
+ctrl+L
+
+# search through command history #
+
+ctrl+R
+
+
