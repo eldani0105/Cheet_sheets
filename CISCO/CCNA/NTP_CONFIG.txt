@@ -1,0 +1,55 @@
+## NTP CONFIG ##
+======================================================================
+## Manual Config ##
+-------------------
+# Configure the clock (softw) #
+
+R1#clock set 12:00:00 dec 30 2020
+
+# Configure Calendar (hrdwr) #
+
+R1#calendar set 12:00:00 dec 30 2020
+
+# Configure the time zone #
+
+R3(config)#clock timezone est 5 10
+
+======================================================================
+## NTP Config ##
+-----------------
+# add an NTP server #
+
+R3(config)#ntp server 1.1.1.1
+
+# Configure NTP server mode #
+
+R1(config)#ntp master 8
+
+# Configure authentication #
+
+R1(config)#ntp authenticate
+R1(config)#ntp authentication-key 1 md5 cisco
+R1(config)#ntp trusted-key 1
+
+# add a server with authentication #
+
+R2(config)#ntp server 192.168.12.1 key 1
+
+# set calendar to NTP time #
+
+R1(config)#ntp update-calendar 
+
+======================================================================
+# Show Commands #
+-----------------
+# Display NTP associations #
+
+R1#show ntp associations 
+
+# display NTP status #
+
+R1#show ntp status
+
+
+
+

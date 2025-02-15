@@ -1,0 +1,63 @@
+## ACL CONFIGURATION ##
+===============================================================================
+## Configure Standard ACLs ##
+------------------------------
+# configure a standard numbered ACL #
+
+R1(config)# access-list number {deny|permit} ip-add wildcard-mask
+EX.  R2(config)#access-list 2 deny 172.16.2.0 0.0.0.255
+
+# permit any other traffic # (important to remember the implicit deny)
+
+R2(config)#access-list 2 permit any 
+
+# apply an ACL on an interface #
+
+R2(config-if)#ip access-group 1 out
+
+# resequence the entry numbers of an ACL #
+
+R1(config)# ip access-list resequence acl-id starting-seq-num increment
+
+# delete an entry on an ACL #
+
+R1(config-ext-nacl)# no {entry-number}
+
+
+================================================================================
+## Configure Extended ACLs ##
+------------------------------
+# configure a numbered ACL from global-config mode #
+
+R2(config)# ip access-list number [permit|deny] protocol src-ip dest-ip
+
+# configure ACLs from ext-acl config mode #
+
+R1(config)# ip access-list extended {name|number}
+R1(config-ext-nacl)# [seq-num] {permit|deny} protocol src-ip dest-ip
+
+# configure ACLs from ext-acl config mode specifying port numbers #
+
+R1(config-ext-nacl)# [seq-num] {permit|deny} protocol src-ip [eq|gt|lt|neq|range] src-port-num dest-ip [eq|gt|lt|neq|range] dest-port-num 
+
+# resequence the entry numbers of an ACL #
+
+R1(config)# ip access-list resequence acl-id starting-seq-num increment
+
+# delete an entry on an ACL #
+
+R1(config-ext-nacl)# no {entry-number}
+
+================================================================================
+## Show Commands ##
+--------------------
+# display ACLs #
+
+R1#show access-lists
+
+# display ACLs including the remarks #
+
+R1#show running-config | section access-list
+
+
+
